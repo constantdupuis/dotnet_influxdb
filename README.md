@@ -8,7 +8,7 @@ You should be familiare with Docker, docker-compose, dotnet and InfluxDB.
 
 ## Setup
 
-Install dotnet core >= [3.1](https://dotnet.microsoft.com/download/dotnet-core/current),  Install [Docker Desktop](https://www.docker.com/products/docker-desktop). You migth need to install `docker-compose` separatly depending on your pltaform.
+Install dotnet core >= [3.1](https://dotnet.microsoft.com/download/dotnet-core/current), Install [Docker Desktop](https://www.docker.com/products/docker-desktop). You migth need to install `docker-compose` separatly depending on your pltaform.
 
 Clone this repo in a empty folder.
 
@@ -37,6 +37,12 @@ See `docker-compose.yaml` for more information on ports and login/password.
 Now run the programm
 
 `> dotnet run`
+
+## To query InfluxDB
+
+While docker-compose is running, run the following command to get access to the influx CLI.
+
+`> docker exec -it <parent_folder_name>_influxdb_1 influx`
 
 # InfluxQL
 
