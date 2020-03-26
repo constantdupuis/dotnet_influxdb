@@ -10,17 +10,35 @@ namespace dotnetInfluxdb
     {
       var app = new Program();
 
-      app.Test();
+      app.MainAsync(args).GetAwaiter().GetResult();
     }
 
-    private void Test()
+    private async Task MainAsync(string[] args)
     {
-      // var client = new InfluxClient(new Uri("http://localhost:8086"), "admin", "toto");
-      // var databases = client.ShowDatabasesAsync();
-      // databases.Wait();
-      // var dbs = databases.Result;
-      // Console.WriteLine(dbs.ToString());
-      var rows = GenerateDataFrom(DateTime.Now, 10);
+      //Connect();
+      await Test();
+    }
+
+
+    private async Task Test()
+    {
+      var client = new InfluxClient(new Uri("http://localhost:8086"), "admin", "toto");
+      var databases = await client.ShowDatabasesAsync();
+      foreach (var serie in databases.Series)
+      {
+        Console.WriteLine("Serie Name : {0}", serie.Name);
+        foreach (var row in serie.Rows)
+        {
+          Console.WriteLine(" Row name: {0}", row.Name);
+        }
+      }
+
+      //var rows = GenerateDataFrom(DateTime.Now, 10);
+    }
+
+    private void Connect()
+    {
+      var client = new InfluxClient(new Uri("http://localhost:8086"), "admin", "toto");
     }
 
     private Timetracking[] GenerateDataFrom(DateTime from, int rowCount)
