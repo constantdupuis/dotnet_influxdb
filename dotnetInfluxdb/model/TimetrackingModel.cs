@@ -3,7 +3,7 @@ using Vibrant.InfluxDB.Client;
 
 namespace dotnetInfluxdb
 {
-  public class Timetracking
+  public class TimetrackingModel
   {
 
     [InfluxTimestamp]
@@ -21,14 +21,16 @@ namespace dotnetInfluxdb
     [InfluxTag("project-id")]
     public int ProjectId { get; set; }
 
+    [InfluxTag("label")]
+    public string Label { get; set; }
+
     [InfluxField("raw-timetracking")]
     public string RawTimetracking { get; set; }
 
     [InfluxField("parsed-timetracking")]
     public double ParsedTimetracking { get; set; }
 
-    [InfluxField("labels")]
-    public string Labels { get; set; }
+
 
   }
 }

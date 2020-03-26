@@ -1,9 +1,13 @@
-﻿using System;
-using System.Threading.Tasks;
-using Vibrant.InfluxDB.Client;
+﻿
+/**
 
+*/
 namespace dotnetInfluxdb
 {
+  using System;
+  using System.Collections.Generic;
+  using System.Threading.Tasks;
+  using Vibrant.InfluxDB.Client;
   class Program
   {
     static void Main(string[] args)
@@ -13,69 +17,57 @@ namespace dotnetInfluxdb
       app.MainAsync(args).GetAwaiter().GetResult();
     }
 
+    private Dictionary<string, IVerbRunner> verbRunners = new Dictionary<string, IVerbRunner>();
+
     private async Task MainAsync(string[] args)
     {
-      //Connect();
-      await Test();
+      RegisterVerbRunners();
+      await RunVerb(args);
+      // clean
     }
 
-
-    private async Task Test()
+    private async Task RunVerb(string[] args)
     {
-      var client = new InfluxClient(new Uri("http://localhost:8086"), "admin", "toto");
-      var databases = await client.ShowDatabasesAsync();
-      foreach (var serie in databases.Series)
+      if (args.Length == 0)
       {
-        Console.WriteLine("Serie Name : {0}", serie.Name);
-        foreach (var row in serie.Rows)
+        Messages.Usage(verbRunners);
+        return;
+      }
+
+      var verb = args[0].ToUpper();
+      IVerbRunner runner = null;
+
+      foreach (var vr in verbRunners)
+      {
+        if (vr.Key.ToUpper().Equals(verb))
         {
-          Console.WriteLine(" Row name: {0}", row.Name);
+          runner = vr.Value;
         }
       }
 
-      //var rows = GenerateDataFrom(DateTime.Now, 10);
-    }
-
-    private void Connect()
-    {
-      var client = new InfluxClient(new Uri("http://localhost:8086"), "admin", "toto");
-    }
-
-    private Timetracking[] GenerateDataFrom(DateTime from, int rowCount)
-    {
-      var rng = new Random();
-      var projects = new[] { "SSV3", "OBAVC", "Walibi", "SSV2.5", "Vanguard" };
-      var users = new[] { "Constant", "Loïc", "Arno", "Marie" };
-      var labels = new[] { "Dev", "Doc", "Design", "Support" };
-
-      var timestamp = from;
-
-      var rows = new Timetracking[rowCount];
-
-      for (int x = 0; x < rowCount; x++)
+      if (runner == null)
       {
-        var userId = rng.Next(users.Length);
-        var projId = rng.Next(projects.Length);
-        var timeT = rng.NextDouble() * 8.0;
-
-        var row = new Timetracking
-        {
-          Timestamp = timestamp,
-          UserId = userId,
-          UserName = users[userId],
-          ProjectId = projId,
-          ProjectName = projects[projId],
-          RawTimetracking = "blabla",
-          ParsedTimetracking = timeT,
-          Labels = labels[rng.Next(labels.Length)]
-        };
-        rows[x] = row;
-
-        timestamp = timestamp.AddDays(rng.NextDouble() * 4.0);
-
+        Messages.Usage(verbRunners);
+        return;
       }
 
-      return rows;
+      if (runner.ParseArgs(args))
+      {
+        await runner.Run();
+      }
+
+      return;
+    }
+
+    private void RegisterVerbRunners()
+    {
+      IVerbRunner runner = new VerbShowDatabase();
+      runner.Init();
+      verbRunners.Add(runner.Verb, runner);
+
+      runner = new VerbSampleData();
+      runner.Init();
+      verbRunners.Add(runner.Verb, runner);
     }
   }
 }
