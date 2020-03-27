@@ -1,13 +1,14 @@
 ﻿
 /**
-
-*/
+ * 
+ * Train on DotNet Core, InfluxDB
+ * 
+ */
 namespace dotnetInfluxdb
 {
   using System;
   using System.Collections.Generic;
   using System.Threading.Tasks;
-  using Vibrant.InfluxDB.Client;
   class Program
   {
     static void Main(string[] args)
@@ -66,6 +67,10 @@ namespace dotnetInfluxdb
       verbRunners.Add(runner.Verb, runner);
 
       runner = new VerbSampleData();
+      runner.Init();
+      verbRunners.Add(runner.Verb, runner);
+
+      runner = new VerbShowPerProjects();
       runner.Init();
       verbRunners.Add(runner.Verb, runner);
     }

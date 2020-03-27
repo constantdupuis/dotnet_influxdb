@@ -1,18 +1,15 @@
-using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using TimetrackingModel;
 
 namespace dotnetInfluxdb
 {
-
-  public class VerbSampleData : IVerbRunner
+  class VerbShowPerProjects : IVerbRunner
   {
-    public string Verb { get; set; } = "SampleData";
-    public string Description { get; set; } = "Inject sample data in the database";
+    public string Verb { get; set; } = "QueryPerProjects";
+    public string Description { get; set; } = "Return timetraking grouped by projects";
 
     public void Close()
     {
-
     }
 
     public string[] GetArguments()
@@ -22,7 +19,6 @@ namespace dotnetInfluxdb
 
     public void Init()
     {
-
     }
 
     public bool ParseArgs(string[] args)
@@ -32,10 +28,8 @@ namespace dotnetInfluxdb
 
     public async Task Run()
     {
-        var model = new ModelOperations();
-        await model.AddSampleData();
+      var model = new ModelOperations();
+      await model.GetTimetrackingSUMPerProjects();
     }
-
-  
   }
 }

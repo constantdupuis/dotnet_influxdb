@@ -1,10 +1,8 @@
-using System;
 using System.Threading.Tasks;
-using Vibrant.InfluxDB.Client;
+using TimetrackingModel;
 
 namespace dotnetInfluxdb
 {
-
   public class VerbShowDatabase : IVerbRunner
   {
 
@@ -21,17 +19,8 @@ namespace dotnetInfluxdb
 
     public async Task Run()
     {
-      Console.WriteLine("Show database(s)");
-      var client = new InfluxClient(new Uri("http://localhost:8086"), "admin", "toto");
-      var databases = await client.ShowDatabasesAsync();
-      foreach (var serie in databases.Series)
-      {
-        //Console.WriteLine("Serie Name : {0}", serie.Name);
-        foreach (var row in serie.Rows)
-        {
-          Console.WriteLine(" - {0}", row.Name);
-        }
-      }
+      var model = new ModelOperations();
+      await model.ShowDatabases();
     }
     public void Close()
     { }
