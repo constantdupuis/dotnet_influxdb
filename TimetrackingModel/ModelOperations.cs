@@ -37,7 +37,7 @@ namespace TimetrackingModel
       var client = new InfluxClient(new Uri("http://localhost:8086"), "admin", "toto");
       var resultSet = await client.ReadAsync<DynamicInfluxRow>(
         "playground",
-        "SELECT SUM(\"parsed-timetracking\") FROM timetracking GROUP BY \"project-name\", \"label\""
+        "SELECT SUM(\"parsed-timetracking\") FROM timetracking GROUP BY \"user-name\", \"project-name\", \"label\""
         );
 
       var result = resultSet.Results[0];
@@ -54,7 +54,7 @@ namespace TimetrackingModel
         {
           foreach (var field in row.Fields)
           {
-            Console.WriteLine("   {0}: {1}", field.Key, field.Value);
+            Console.WriteLine("    {0}: {1}", field.Key, field.Value);
           }
         }
       }
@@ -63,9 +63,9 @@ namespace TimetrackingModel
     private TimetrackingMeasurment[] GenerateDataFrom(DateTime from, int rowCount)
     {
       var rng = new Random();
-      var projects = new[] { "SSV3", "OBAVC", "Walibi", "SSV2.5", "Vanguard" };
-      var users = new[] { "Constant", "Loïc", "Arno", "Marie" };
-      var labels = new[] { "Dev", "Doc", "Design", "Support" };
+      var projects = new[] { "Aller sur la lune", "Moteur à ordures", "Four solaire", "Composte a plastique", "Vélo à hydrogéne" };
+      var users = new[] { "Bernard", "Raoul", "Thérése", "Monique", "Marcel", "Josiane" };
+      var labels = new[] { "Dev", "Doc", "Design", "Support", "R&D" };
 
       var timestamp = from;
 
