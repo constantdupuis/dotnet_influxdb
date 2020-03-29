@@ -2,6 +2,7 @@
 namespace TimetrackingModel
 {
   using System;
+  using System.Collections.Generic;
   using System.Threading.Tasks;
   using Vibrant.InfluxDB.Client;
   using Vibrant.InfluxDB.Client.Rows;
@@ -34,27 +35,53 @@ namespace TimetrackingModel
     public async Task GetTimetrackingSUMPerProjects()
     {
       Console.WriteLine("Query Timetracking per projects");
+
+      List<PerProjectStats> ret = new List<PerProjectStats>();
+
       var client = new InfluxClient(new Uri("http://localhost:8086"), "admin", "toto");
       var resultSet = await client.ReadAsync<DynamicInfluxRow>(
         "playground",
-        "SELECT SUM(\"parsed-timetracking\") FROM timetracking GROUP BY \"user-name\", \"project-name\", \"label\""
+        "SELECT SUM(\"parsed-timetracking\") FROM timetracking GROUP BY \"project-name\""
         );
 
       var result = resultSet.Results[0];
 
       foreach (var serie in result.Series)
       {
-        Console.WriteLine(" {0}", serie.Name);
+        //Console.WriteLine(" {0}", serie.Name);
         foreach (var tags in serie.GroupedTags)
         {
-          Console.WriteLine("   {0}: {1}", tags.Key, tags.Value);
-        }
+          //Console.WriteLine("   {0}: {1}", tags.Key, tags.Value);
+          PerProjectStats stats = new PerProjectStats();
+          stats.Name = tags.Value as string;
+          stats.SumTime = (double)serie.Rows[0].Fields["sum"];
 
+          Console.WriteLine("{0}: {1}", stats.Name, stats.SumTime);
+          ret.Add(stats);
+        }
+      }
+
+      resultSet = await client.ReadAsync<DynamicInfluxRow>(
+        "playground",
+        "SELECT SUM(\"parsed-timetracking\") FROM timetracking GROUP BY \"project-name\", \"user-name\""
+        );
+
+      result = resultSet.Results[0];
+      foreach (var serie in result.Series)
+      {
+        foreach (var tags in serie.GroupedTags)
+        {
+          Console.WriteLine("Tasg {0}:{1}", tags.Key, tags.Value);
+        }
         foreach (var row in serie.Rows)
         {
+          foreach (var tag in row.Tags)
+          {
+            Console.WriteLine(" Tag {0}:{1}", tag.Key, tag.Value);
+          }
           foreach (var field in row.Fields)
           {
-            Console.WriteLine("    {0}: {1}", field.Key, field.Value);
+            Console.WriteLine(" Field {0}:{1}", field.Key, field.Value);
           }
         }
       }
