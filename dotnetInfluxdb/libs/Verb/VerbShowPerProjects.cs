@@ -7,6 +7,7 @@ namespace dotnetInfluxdb
   {
     public string Verb { get; set; } = "QueryPerProjects";
     public string Description { get; set; } = "Return timetraking grouped by projects";
+    private NLog.Logger logger;
 
     public void Close()
     {
@@ -17,8 +18,9 @@ namespace dotnetInfluxdb
       return new string[] { "No Arguments" };
     }
 
-    public void Init()
+    public void Init(NLog.Logger logger)
     {
+      this.logger = logger;
     }
 
     public bool ParseArgs(string[] args)
@@ -28,7 +30,7 @@ namespace dotnetInfluxdb
 
     public async Task Run()
     {
-      var model = new ModelOperations();
+      var model = new ModelOperations(logger);
       await model.GetTimetrackingSUMPerProjects();
     }
   }

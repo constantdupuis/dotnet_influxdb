@@ -9,6 +9,7 @@ namespace dotnetInfluxdb
   {
     public string Verb { get; set; } = "SampleData";
     public string Description { get; set; } = "Inject sample data in the database";
+    private NLog.Logger logger;
 
     public void Close()
     {
@@ -20,9 +21,9 @@ namespace dotnetInfluxdb
       return new string[] { "No Arguments" };
     }
 
-    public void Init()
+    public void Init(NLog.Logger logger)
     {
-
+      this.logger = logger;
     }
 
     public bool ParseArgs(string[] args)
@@ -32,10 +33,10 @@ namespace dotnetInfluxdb
 
     public async Task Run()
     {
-        var model = new ModelOperations();
-        await model.AddSampleData();
+      var model = new ModelOperations(this.logger);
+      await model.AddSampleData();
     }
 
-  
+
   }
 }

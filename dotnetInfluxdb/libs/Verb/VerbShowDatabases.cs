@@ -8,18 +8,21 @@ namespace dotnetInfluxdb
 
     public string Verb { get; set; } = "ShowDatabase";
     public string Description { get; set; } = "List available InfluxDB databases";
+    private NLog.Logger logger;
 
     public bool ParseArgs(string[] args)
     {
       return true;
     }
 
-    public void Init()
-    { }
+    public void Init(NLog.Logger logger)
+    {
+      this.logger = logger;
+    }
 
     public async Task Run()
     {
-      var model = new ModelOperations();
+      var model = new ModelOperations(this.logger);
       await model.ShowDatabases();
     }
     public void Close()

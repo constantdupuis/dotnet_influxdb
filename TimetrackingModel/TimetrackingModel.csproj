@@ -1,11 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
+    <PackageReference Include="NLog" Version="4.7.0" />
     <PackageReference Include="Vibrant.InfluxDB.Client" Version="4.0.2" />
+    <Content Include="ModelOperations.cs" />
+    <Content Include="TimetrackingStats.cs" />
   </ItemGroup>
-
 </Project>

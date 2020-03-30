@@ -9,11 +9,14 @@ namespace dotnetInfluxdb
   using System;
   using System.Collections.Generic;
   using System.Threading.Tasks;
+  using NLog;
   class Program
   {
+    static Logger logger;
     static void Main(string[] args)
     {
       var app = new Program();
+      logger = LogManager.GetCurrentClassLogger();
 
       app.MainAsync(args).GetAwaiter().GetResult();
     }
@@ -22,8 +25,13 @@ namespace dotnetInfluxdb
 
     private async Task MainAsync(string[] args)
     {
+      logger.Info(" Start Main");
+      logger.Info(" Register Verb Runners");
       RegisterVerbRunners();
+      logger.Info(" Verb runners registered");
+      logger.Info(" Run Verb");
       await RunVerb(args);
+      logger.Info(" Verb runned");
       // clean
     }
 
@@ -63,15 +71,15 @@ namespace dotnetInfluxdb
     private void RegisterVerbRunners()
     {
       IVerbRunner runner = new VerbShowDatabase();
-      runner.Init();
+      runner.Init(logger);
       verbRunners.Add(runner.Verb, runner);
 
       runner = new VerbSampleData();
-      runner.Init();
+      runner.Init(logger);
       verbRunners.Add(runner.Verb, runner);
 
       runner = new VerbShowPerProjects();
-      runner.Init();
+      runner.Init(logger);
       verbRunners.Add(runner.Verb, runner);
     }
   }
