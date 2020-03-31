@@ -158,14 +158,17 @@ namespace TimetrackingModel
 
       } // for each
 
-      logger.Info("Stringify resultats...");
-      var sb = new StringBuilder();
-      foreach (var projStats in ret.Values)
-      {
-        sb.Append(projStats.ToString());
-      }
+      // logger.Info("Stringify resultats...");
+      // var sb = new StringBuilder();
+      // foreach (var projStats in ret.Values)
+      // {
+      //   sb.Append(projStats.ToString());
+      // }
 
-      string str = sb.ToString();
+      // string str = sb.ToString();
+
+      logger.Info("Convert to JSON...");
+      string str = ToJson.PerProjectStatsToJSON(ret.Values);
 
       logger.Info("Show resultats...");
       Console.WriteLine(str);
