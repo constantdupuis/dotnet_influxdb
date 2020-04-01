@@ -42,7 +42,7 @@ namespace TimetrackingModel
       await client.WriteAsync("playground", "timetracking", dataRows);
     }
 
-    public async Task GetTimetrackingSUMPerProjects()
+    public async Task<string> GetTimetrackingSUMPerProjects()
     {
       Dictionary<string, PerProjectStats> ret = new Dictionary<string, PerProjectStats>();
 
@@ -50,28 +50,6 @@ namespace TimetrackingModel
       logger.Info("Create Client");
       var client = new InfluxClient(new Uri("http://localhost:8086"), "admin", "toto");
       logger.Info("Query DB...");
-
-      // var resultSet = await client.ReadAsync<DynamicInfluxRow>(
-      //   "playground",
-      //   "SELECT SUM(\"parsed-timetracking\") FROM timetracking GROUP BY \"project-name\""
-      //   );
-      // logger.Info("Show Projects");
-      // var result = resultSet.Results[0];
-
-      // foreach (var serie in result.Series)
-      // {
-      //   //Console.WriteLine(" {0}", serie.Name);
-      //   foreach (var tags in serie.GroupedTags)
-      //   {
-      //     //Console.WriteLine("   {0}: {1}", tags.Key, tags.Value);
-      //     PerProjectStats stats = new PerProjectStats();
-      //     stats.Name = tags.Value as string;
-      //     stats.SumTime = (double)serie.Rows[0].Fields["sum"];
-
-      //     Console.WriteLine("{0}: {1}", stats.Name, stats.SumTime);
-      //     ret.Add(stats);
-      //   }
-      // }
 
       var resultSet = await client.ReadAsync<DynamicInfluxRow>(
         "playground",
@@ -82,10 +60,6 @@ namespace TimetrackingModel
       var result = resultSet.Results[0];
       foreach (var serie in result.Series)
       {
-        // foreach (var tags in serie.GroupedTags)
-        // {
-        //   Console.WriteLine("Tasg {0}:{1}", tags.Key, tags.Value);
-        // }
 
         var projectName = serie.GroupedTags["project-name"] as string;
         var developerName = serie.GroupedTags["user-name"] as string;
@@ -158,20 +132,12 @@ namespace TimetrackingModel
 
       } // for each
 
-      // logger.Info("Stringify resultats...");
-      // var sb = new StringBuilder();
-      // foreach (var projStats in ret.Values)
-      // {
-      //   sb.Append(projStats.ToString());
-      // }
-
-      // string str = sb.ToString();
-
       logger.Info("Convert to JSON...");
       string str = ToJson.PerProjectStatsToJSON(ret.Values);
 
-      logger.Info("Show resultats...");
-      Console.WriteLine(str);
+      return str;
+      // logger.Info("Show resultats...");
+      // Console.WriteLine(str);
     }
 
     private TimetrackingMeasurment[] GenerateDataFrom(DateTime from, int rowCount)

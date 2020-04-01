@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using TimetrackingModel;
 
 namespace dotnetInfluxdb
@@ -31,7 +32,8 @@ namespace dotnetInfluxdb
     public async Task Run()
     {
       var model = new ModelOperations(logger);
-      await model.GetTimetrackingSUMPerProjects();
+      var json = await model.GetTimetrackingSUMPerProjects();
+      Console.WriteLine(json);
     }
   }
 }

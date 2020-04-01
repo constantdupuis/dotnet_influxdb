@@ -80,44 +80,87 @@ namespace TimetrackingModel
 
   public static class ToJson
   {
-    public static string PerProjectStatsToJSON(IEnumerable<PerProjectStats> projectsStats)
+    public static string PerProjectStatsToJSON(ICollection<PerProjectStats> projectsStats)
     {
       var sb = new StringBuilder();
 
       sb.Append("[\n");
+      var projectCount = projectsStats.Count;
+      int counter = 0;
       foreach (var projStats in projectsStats)
       {
         sb.Append(" {\n");
         sb.AppendFormat("  \"name\": \"{0}\",\n", projStats.Name);
         sb.AppendFormat("  \"time\": {0},\n", projStats.SumTime.ToString("0.00", new CultureInfo("en-US")));
         sb.Append("  \"tasks\": [\n");
+        var taskNbr = projStats.Tasks.Values.Count;
+        var taskCounter = 0;
         foreach (var task in projStats.Tasks.Values)
         {
           sb.Append("     {\n");
           sb.AppendFormat("       \"name\" : \"{0}\",\n", task.Name);
           sb.AppendFormat("       \"time\" : {0}\n", task.SumTime.ToString("0.00", new CultureInfo("en-US")));
-          sb.Append("     },\n");
+
+          taskCounter++;
+          if (taskCounter < taskNbr)
+          {
+            sb.Append("     },\n");
+          }
+          else
+          {
+            sb.Append("     }\n");
+          }
         }
         sb.Append("   ],\n");
         sb.Append("  \"developers\": [\n");
+        var developerNbr = projStats.Developers.Values.Count;
+        var developerCounter = 0;
         foreach (var dev in projStats.Developers.Values)
         {
           sb.Append("     {\n");
           sb.AppendFormat("       \"name\" : \"{0}\",\n", dev.Name);
           sb.AppendFormat("       \"time\" : {0},\n", dev.SumTime.ToString("0.00", new CultureInfo("en-US")));
           sb.Append("       \"tasks\": [\n");
+          var devTasksNbr = dev.Tasks.Values.Count;
+          var devTasksCounter = 0;
           foreach (var task in dev.Tasks.Values)
           {
             sb.Append("         {\n");
             sb.AppendFormat("           \"name\" : \"{0}\",\n", task.Name);
             sb.AppendFormat("           \"time\" : {0}\n", task.SumTime.ToString("0.00", new CultureInfo("en-US")));
-            sb.Append("         },\n");
+            devTasksCounter++;
+            if (devTasksCounter < devTasksNbr)
+            {
+              sb.Append("         },\n");
+            }
+            else
+            {
+              sb.Append("         }\n");
+            }
           }
+
           sb.Append("       ]\n");
-          sb.Append("     },\n");
+          developerCounter++;
+          if (developerCounter < developerNbr)
+          {
+            sb.Append("     },\n");
+          }
+          else
+          {
+            sb.Append("     }\n");
+          }
         }
-        sb.Append("   ],\n");
-        sb.Append(" },\n");
+        sb.Append("   ]\n");
+
+        counter++;
+        if (counter < projectCount)
+        {
+          sb.Append(" },\n");
+        }
+        else
+        {
+          sb.Append(" }\n");
+        }
       }
       sb.Append("]");
 

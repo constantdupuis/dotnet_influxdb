@@ -1,3 +1,12 @@
+2020/04/01 20:36:04.870|INFO| Start Main |dotnetInfluxdb.Program|
+2020/04/01 20:36:04.895|INFO| Register Verb Runners |dotnetInfluxdb.Program|
+2020/04/01 20:36:04.895|INFO| Verb runners registered |dotnetInfluxdb.Program|
+2020/04/01 20:36:04.895|INFO| Run Verb |dotnetInfluxdb.Program|
+2020/04/01 20:36:04.944|INFO|Query Timetracking per projects |dotnetInfluxdb.Program|
+2020/04/01 20:36:04.944|INFO|Create Client |dotnetInfluxdb.Program|
+2020/04/01 20:36:04.962|INFO|Query DB... |dotnetInfluxdb.Program|
+2020/04/01 20:36:05.252|INFO|Consolidate resultats... |dotnetInfluxdb.Program|
+2020/04/01 20:36:05.259|INFO|Convert to JSON... |dotnetInfluxdb.Program|
 [
  {
   "name": "Aller sur la lune",
@@ -18,7 +27,7 @@
      {
        "name" : "R&D",
        "time" : 17.16
-     },
+     }
    ],
   "developers": [
      {
@@ -36,8 +45,8 @@
          {
            "name" : "R&D",
            "time" : 3.36
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Raoul",
@@ -50,8 +59,8 @@
          {
            "name" : "Doc",
            "time" : 5.88
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Monique",
@@ -64,8 +73,8 @@
          {
            "name" : "R&D",
            "time" : 4.09
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Bernard",
@@ -74,8 +83,8 @@
          {
            "name" : "Doc",
            "time" : 5.33
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Josiane",
@@ -84,8 +93,8 @@
          {
            "name" : "Doc",
            "time" : 3.70
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Thérése",
@@ -98,10 +107,10 @@
          {
            "name" : "R&D",
            "time" : 9.71
-         },
-       ],
-     },
-   ],
+         }
+       ]
+     }
+   ]
  },
  {
   "name": "Four solaire",
@@ -126,7 +135,7 @@
      {
        "name" : "Support",
        "time" : 18.86
-     },
+     }
    ],
   "developers": [
      {
@@ -144,8 +153,8 @@
          {
            "name" : "Support",
            "time" : 3.01
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Raoul",
@@ -170,8 +179,8 @@
          {
            "name" : "Support",
            "time" : 8.99
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Thérése",
@@ -196,8 +205,8 @@
          {
            "name" : "Support",
            "time" : 6.86
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Marcel",
@@ -214,8 +223,8 @@
          {
            "name" : "R&D",
            "time" : 8.62
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Bernard",
@@ -228,8 +237,8 @@
          {
            "name" : "R&D",
            "time" : 5.66
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Josiane",
@@ -238,10 +247,10 @@
          {
            "name" : "Doc",
            "time" : 13.60
-         },
-       ],
-     },
-   ],
+         }
+       ]
+     }
+   ]
  },
  {
   "name": "Moteur à ordures",
@@ -266,7 +275,7 @@
      {
        "name" : "Support",
        "time" : 2.29
-     },
+     }
    ],
   "developers": [
      {
@@ -284,8 +293,8 @@
          {
            "name" : "R&D",
            "time" : 7.28
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Marcel",
@@ -298,8 +307,8 @@
          {
            "name" : "R&D",
            "time" : 0.78
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Monique",
@@ -312,8 +321,8 @@
          {
            "name" : "Support",
            "time" : 0.32
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Josiane",
@@ -330,8 +339,8 @@
          {
            "name" : "Support",
            "time" : 1.97
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Raoul",
@@ -348,8 +357,8 @@
          {
            "name" : "R&D",
            "time" : 2.19
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Thérése",
@@ -362,10 +371,10 @@
          {
            "name" : "R&D",
            "time" : 6.44
-         },
-       ],
-     },
-   ],
+         }
+       ]
+     }
+   ]
  },
  {
   "name": "Vélo à hydrogéne",
@@ -390,7 +399,7 @@
      {
        "name" : "Support",
        "time" : 13.50
-     },
+     }
    ],
   "developers": [
      {
@@ -408,8 +417,8 @@
          {
            "name" : "R&D",
            "time" : 3.47
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Monique",
@@ -426,8 +435,8 @@
          {
            "name" : "Support",
            "time" : 1.87
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Raoul",
@@ -436,8 +445,8 @@
          {
            "name" : "Design",
            "time" : 5.49
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Bernard",
@@ -450,8 +459,8 @@
          {
            "name" : "Support",
            "time" : 7.60
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Josiane",
@@ -468,10 +477,10 @@
          {
            "name" : "Support",
            "time" : 4.04
-         },
-       ],
-     },
-   ],
+         }
+       ]
+     }
+   ]
  },
  {
   "name": "Composte a plastique",
@@ -492,7 +501,7 @@
      {
        "name" : "Support",
        "time" : 13.39
-     },
+     }
    ],
   "developers": [
      {
@@ -510,8 +519,8 @@
          {
            "name" : "Support",
            "time" : 3.87
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Monique",
@@ -524,8 +533,8 @@
          {
            "name" : "Support",
            "time" : 5.78
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Raoul",
@@ -542,8 +551,8 @@
          {
            "name" : "Support",
            "time" : 0.11
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Thérése",
@@ -556,8 +565,8 @@
          {
            "name" : "Support",
            "time" : 3.63
-         },
-       ],
+         }
+       ]
      },
      {
        "name" : "Josiane",
@@ -570,10 +579,10 @@
          {
            "name" : "R&D",
            "time" : 7.85
-         },
-       ],
-     },
-   ],
- },
+         }
+       ]
+     }
+   ]
+ }
 ]
-
+2020/04/01 20:36:05.259|INFO| Verb runned |dotnetInfluxdb.Program|
