@@ -113,7 +113,7 @@ namespace TimetrackingModel
             sb.AppendFormat("           \"time\" : {0}\n", task.SumTime.ToString("0.00", new CultureInfo("en-US")));
             sb.Append("         },\n");
           }
-          sb.Append("       ],\n");
+          sb.Append("       ]\n");
           sb.Append("     },\n");
         }
         sb.Append("   ],\n");

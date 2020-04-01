@@ -1,0 +1,579 @@
+[
+ {
+  "name": "Aller sur la lune",
+  "time": 64.54,
+  "tasks": [
+     {
+       "name" : "Design",
+       "time" : 14.60
+     },
+     {
+       "name" : "Dev",
+       "time" : 10.78
+     },
+     {
+       "name" : "Doc",
+       "time" : 22.00
+     },
+     {
+       "name" : "R&D",
+       "time" : 17.16
+     },
+   ],
+  "developers": [
+     {
+       "name" : "Marcel",
+       "time" : 11.35,
+       "tasks": [
+         {
+           "name" : "Design",
+           "time" : 0.34
+         },
+         {
+           "name" : "Dev",
+           "time" : 7.65
+         },
+         {
+           "name" : "R&D",
+           "time" : 3.36
+         },
+       ],
+     },
+     {
+       "name" : "Raoul",
+       "time" : 20.14,
+       "tasks": [
+         {
+           "name" : "Design",
+           "time" : 14.26
+         },
+         {
+           "name" : "Doc",
+           "time" : 5.88
+         },
+       ],
+     },
+     {
+       "name" : "Monique",
+       "time" : 7.21,
+       "tasks": [
+         {
+           "name" : "Dev",
+           "time" : 3.13
+         },
+         {
+           "name" : "R&D",
+           "time" : 4.09
+         },
+       ],
+     },
+     {
+       "name" : "Bernard",
+       "time" : 5.33,
+       "tasks": [
+         {
+           "name" : "Doc",
+           "time" : 5.33
+         },
+       ],
+     },
+     {
+       "name" : "Josiane",
+       "time" : 3.70,
+       "tasks": [
+         {
+           "name" : "Doc",
+           "time" : 3.70
+         },
+       ],
+     },
+     {
+       "name" : "Thérése",
+       "time" : 16.80,
+       "tasks": [
+         {
+           "name" : "Doc",
+           "time" : 7.09
+         },
+         {
+           "name" : "R&D",
+           "time" : 9.71
+         },
+       ],
+     },
+   ],
+ },
+ {
+  "name": "Four solaire",
+  "time": 129.14,
+  "tasks": [
+     {
+       "name" : "Design",
+       "time" : 20.12
+     },
+     {
+       "name" : "Dev",
+       "time" : 9.29
+     },
+     {
+       "name" : "Doc",
+       "time" : 44.67
+     },
+     {
+       "name" : "R&D",
+       "time" : 36.20
+     },
+     {
+       "name" : "Support",
+       "time" : 18.86
+     },
+   ],
+  "developers": [
+     {
+       "name" : "Monique",
+       "time" : 20.05,
+       "tasks": [
+         {
+           "name" : "Design",
+           "time" : 10.61
+         },
+         {
+           "name" : "Doc",
+           "time" : 6.43
+         },
+         {
+           "name" : "Support",
+           "time" : 3.01
+         },
+       ],
+     },
+     {
+       "name" : "Raoul",
+       "time" : 24.47,
+       "tasks": [
+         {
+           "name" : "Design",
+           "time" : 3.63
+         },
+         {
+           "name" : "Dev",
+           "time" : 2.93
+         },
+         {
+           "name" : "Doc",
+           "time" : 0.40
+         },
+         {
+           "name" : "R&D",
+           "time" : 8.52
+         },
+         {
+           "name" : "Support",
+           "time" : 8.99
+         },
+       ],
+     },
+     {
+       "name" : "Thérése",
+       "time" : 43.21,
+       "tasks": [
+         {
+           "name" : "Design",
+           "time" : 5.88
+         },
+         {
+           "name" : "Dev",
+           "time" : 1.09
+         },
+         {
+           "name" : "Doc",
+           "time" : 15.99
+         },
+         {
+           "name" : "R&D",
+           "time" : 13.40
+         },
+         {
+           "name" : "Support",
+           "time" : 6.86
+         },
+       ],
+     },
+     {
+       "name" : "Marcel",
+       "time" : 21.32,
+       "tasks": [
+         {
+           "name" : "Dev",
+           "time" : 5.27
+         },
+         {
+           "name" : "Doc",
+           "time" : 7.43
+         },
+         {
+           "name" : "R&D",
+           "time" : 8.62
+         },
+       ],
+     },
+     {
+       "name" : "Bernard",
+       "time" : 6.48,
+       "tasks": [
+         {
+           "name" : "Doc",
+           "time" : 0.82
+         },
+         {
+           "name" : "R&D",
+           "time" : 5.66
+         },
+       ],
+     },
+     {
+       "name" : "Josiane",
+       "time" : 13.60,
+       "tasks": [
+         {
+           "name" : "Doc",
+           "time" : 13.60
+         },
+       ],
+     },
+   ],
+ },
+ {
+  "name": "Moteur à ordures",
+  "time": 84.88,
+  "tasks": [
+     {
+       "name" : "Design",
+       "time" : 20.23
+     },
+     {
+       "name" : "Dev",
+       "time" : 18.63
+     },
+     {
+       "name" : "Doc",
+       "time" : 27.06
+     },
+     {
+       "name" : "R&D",
+       "time" : 16.69
+     },
+     {
+       "name" : "Support",
+       "time" : 2.29
+     },
+   ],
+  "developers": [
+     {
+       "name" : "Bernard",
+       "time" : 12.18,
+       "tasks": [
+         {
+           "name" : "Design",
+           "time" : 1.95
+         },
+         {
+           "name" : "Doc",
+           "time" : 2.96
+         },
+         {
+           "name" : "R&D",
+           "time" : 7.28
+         },
+       ],
+     },
+     {
+       "name" : "Marcel",
+       "time" : 8.83,
+       "tasks": [
+         {
+           "name" : "Design",
+           "time" : 8.05
+         },
+         {
+           "name" : "R&D",
+           "time" : 0.78
+         },
+       ],
+     },
+     {
+       "name" : "Monique",
+       "time" : 10.55,
+       "tasks": [
+         {
+           "name" : "Design",
+           "time" : 10.23
+         },
+         {
+           "name" : "Support",
+           "time" : 0.32
+         },
+       ],
+     },
+     {
+       "name" : "Josiane",
+       "time" : 35.02,
+       "tasks": [
+         {
+           "name" : "Dev",
+           "time" : 14.78
+         },
+         {
+           "name" : "Doc",
+           "time" : 18.27
+         },
+         {
+           "name" : "Support",
+           "time" : 1.97
+         },
+       ],
+     },
+     {
+       "name" : "Raoul",
+       "time" : 11.54,
+       "tasks": [
+         {
+           "name" : "Dev",
+           "time" : 3.52
+         },
+         {
+           "name" : "Doc",
+           "time" : 5.82
+         },
+         {
+           "name" : "R&D",
+           "time" : 2.19
+         },
+       ],
+     },
+     {
+       "name" : "Thérése",
+       "time" : 6.76,
+       "tasks": [
+         {
+           "name" : "Dev",
+           "time" : 0.32
+         },
+         {
+           "name" : "R&D",
+           "time" : 6.44
+         },
+       ],
+     },
+   ],
+ },
+ {
+  "name": "Vélo à hydrogéne",
+  "time": 71.53,
+  "tasks": [
+     {
+       "name" : "Design",
+       "time" : 16.62
+     },
+     {
+       "name" : "Dev",
+       "time" : 22.71
+     },
+     {
+       "name" : "Doc",
+       "time" : 7.19
+     },
+     {
+       "name" : "R&D",
+       "time" : 11.51
+     },
+     {
+       "name" : "Support",
+       "time" : 13.50
+     },
+   ],
+  "developers": [
+     {
+       "name" : "Marcel",
+       "time" : 16.66,
+       "tasks": [
+         {
+           "name" : "Design",
+           "time" : 8.47
+         },
+         {
+           "name" : "Doc",
+           "time" : 4.72
+         },
+         {
+           "name" : "R&D",
+           "time" : 3.47
+         },
+       ],
+     },
+     {
+       "name" : "Monique",
+       "time" : 17.57,
+       "tasks": [
+         {
+           "name" : "Design",
+           "time" : 2.65
+         },
+         {
+           "name" : "Dev",
+           "time" : 13.04
+         },
+         {
+           "name" : "Support",
+           "time" : 1.87
+         },
+       ],
+     },
+     {
+       "name" : "Raoul",
+       "time" : 5.49,
+       "tasks": [
+         {
+           "name" : "Design",
+           "time" : 5.49
+         },
+       ],
+     },
+     {
+       "name" : "Bernard",
+       "time" : 17.26,
+       "tasks": [
+         {
+           "name" : "Dev",
+           "time" : 9.66
+         },
+         {
+           "name" : "Support",
+           "time" : 7.60
+         },
+       ],
+     },
+     {
+       "name" : "Josiane",
+       "time" : 14.54,
+       "tasks": [
+         {
+           "name" : "Doc",
+           "time" : 2.47
+         },
+         {
+           "name" : "R&D",
+           "time" : 8.04
+         },
+         {
+           "name" : "Support",
+           "time" : 4.04
+         },
+       ],
+     },
+   ],
+ },
+ {
+  "name": "Composte a plastique",
+  "time": 63.62,
+  "tasks": [
+     {
+       "name" : "Dev",
+       "time" : 24.61
+     },
+     {
+       "name" : "Doc",
+       "time" : 5.59
+     },
+     {
+       "name" : "R&D",
+       "time" : 20.04
+     },
+     {
+       "name" : "Support",
+       "time" : 13.39
+     },
+   ],
+  "developers": [
+     {
+       "name" : "Marcel",
+       "time" : 18.45,
+       "tasks": [
+         {
+           "name" : "Dev",
+           "time" : 7.00
+         },
+         {
+           "name" : "R&D",
+           "time" : 7.58
+         },
+         {
+           "name" : "Support",
+           "time" : 3.87
+         },
+       ],
+     },
+     {
+       "name" : "Monique",
+       "time" : 10.62,
+       "tasks": [
+         {
+           "name" : "Dev",
+           "time" : 4.84
+         },
+         {
+           "name" : "Support",
+           "time" : 5.78
+         },
+       ],
+     },
+     {
+       "name" : "Raoul",
+       "time" : 13.81,
+       "tasks": [
+         {
+           "name" : "Dev",
+           "time" : 9.09
+         },
+         {
+           "name" : "R&D",
+           "time" : 4.61
+         },
+         {
+           "name" : "Support",
+           "time" : 0.11
+         },
+       ],
+     },
+     {
+       "name" : "Thérése",
+       "time" : 7.30,
+       "tasks": [
+         {
+           "name" : "Dev",
+           "time" : 3.67
+         },
+         {
+           "name" : "Support",
+           "time" : 3.63
+         },
+       ],
+     },
+     {
+       "name" : "Josiane",
+       "time" : 13.43,
+       "tasks": [
+         {
+           "name" : "Doc",
+           "time" : 5.59
+         },
+         {
+           "name" : "R&D",
+           "time" : 7.85
+         },
+       ],
+     },
+   ],
+ },
+]
+
